@@ -1,0 +1,85 @@
+// İngilizce arayüz metinleri (UI chrome). İçerik verisi data/ içindedir.
+export const en = {
+  nav: {
+    hero: "Home",
+    campaigns: "Campaigns",
+    treatments: "Treatments",
+    story: "Our Story",
+    blog: "Blog",
+    contact: "Contact",
+  },
+  actions: {
+    bookNow: "Book Now",
+    explore: "Explore Treatments",
+    ourStory: "Our Story",
+    discover: "Discover Offer",
+    viewDetails: "View details",
+    book: "Book Appointment",
+    readArticle: "Read Article",
+    callToBook: "Call to Book",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    close: "Close",
+  },
+  hero: {
+    eyebrow: "YOUR BEAUTY, YOUR RITUAL",
+    title: "Discover the beauty of self-care.",
+    desc: "Make time for yourself. Explore personalized beauty rituals crafted around you.",
+    bookByPhone: "Book by phone:",
+  },
+  campaigns: {
+    eyebrow: "SPECIAL OFFERS",
+    title: "Featured Campaigns",
+    subtitle: "Seasonal rituals at special prices.",
+    badge: "SPECIAL OFFER",
+    priceNote: "* Example prices for demo purposes.",
+  },
+  treatments: {
+    eyebrow: "OUR MENU",
+    title: "Treatments",
+    subtitle: "Explore our full range of care rituals. Tap a card for details.",
+    steps: "Steps",
+    duration: "Duration",
+    price: "Price",
+    suitableFor: "Suitable for:",
+  },
+  story: {
+    title: "Our Story",
+    prevPage: "Previous page",
+    nextPage: "Next page",
+  },
+  blog: {
+    eyebrow: "BEAUTY JOURNAL",
+    title: "From the Blog",
+    subtitle: "Tips and rituals for your self-care routine.",
+  },
+  testimonials: {
+    eyebrow: "KIND WORDS",
+    title: "What Our Clients Say",
+    note: "* Sample testimonials for demo purposes.",
+    prev: "Previous testimonial",
+    next: "Next testimonial",
+  },
+  contact: {
+    eyebrow: "GET IN TOUCH",
+    title: "Book Your Appointment",
+    desc: "Call us or visit the studio — we would love to see you.",
+    salon: "Salon",
+    owner: "Owner",
+    phone: "Phone",
+    address: "Address",
+    hours: "Hours",
+    note: "* Demo contact details — not a real business.",
+  },
+  footer: {
+    tagline: "Beauty & self-care rituals crafted around you.",
+    quickLinks: "Quick Links",
+    follow: "Follow",
+    rights: "Demo project — not a real business.",
+  },
+  aria: {
+    brand: "Yeloura Studio — home",
+  },
+}
+
+export type Dict = typeof en

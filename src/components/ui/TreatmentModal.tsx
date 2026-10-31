@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import type { Treatment } from "@/data/treatments"
+import { useI18n } from "@/i18n"
 import Button from "@/components/ui/Button"
 
 interface TreatmentModalProps {
@@ -11,6 +12,7 @@ interface TreatmentModalProps {
 // Seans detay modalı (doküman 05 §9.4 + 06 §C):
 // - Escape ile kapanır, açılınca kapatma butonuna odaklanır, arka plan scroll kilitlenir.
 export default function TreatmentModal({ treatment, onClose }: TreatmentModalProps) {
+  const { lang, t } = useI18n()
   const closeRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function TreatmentModal({ treatment, onClose }: TreatmentModalPro
             <button
               ref={closeRef}
               onClick={onClose}
-              aria-label="Close"
+              aria-label={t.actions.close}
               className="absolute right-4 top-4 text-2xl leading-none text-muted hover:text-rose"
             >
               ×
@@ -58,32 +60,32 @@ export default function TreatmentModal({ treatment, onClose }: TreatmentModalPro
             <h3 id="treatment-modal-title" className="font-serif text-2xl text-ink">
               {treatment.name}
             </h3>
-            <p className="mt-2 text-muted">{treatment.description}</p>
+            <p className="mt-2 text-muted">{treatment.description[lang]}</p>
 
-            <h4 className="mt-5 font-medium text-ink">Steps</h4>
+            <h4 className="mt-5 font-medium text-ink">{t.treatments.steps}</h4>
             <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-muted">
-              {treatment.steps.map((step, i) => (
+              {treatment.steps[lang].map((step, i) => (
                 <li key={i}>{step}</li>
               ))}
             </ol>
 
             <div className="mt-5 grid grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-muted">Duration</span>
-                <p className="text-ink">{treatment.duration}</p>
+                <span className="text-muted">{t.treatments.duration}</span>
+                <p className="text-ink">{treatment.duration[lang]}</p>
               </div>
               <div>
-                <span className="text-muted">Price</span>
+                <span className="text-muted">{t.treatments.price}</span>
                 <p className="text-ink">{treatment.price}</p>
               </div>
             </div>
             <p className="mt-3 text-sm text-muted">
-              <span className="font-medium text-ink">Suitable for: </span>
-              {treatment.suitableFor}
+              <span className="font-medium text-ink">{t.treatments.suitableFor} </span>
+              {treatment.suitableFor[lang]}
             </p>
 
             <Button href="#contact" onClick={onClose} className="mt-6 w-full">
-              Book Appointment
+              {t.actions.book}
             </Button>
           </motion.div>
         </motion.div>

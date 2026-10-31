@@ -1,5 +1,6 @@
-// Marka + navigasyon + DEMO (kurgusal) iletişim verisi.
-// Gerçek işletme değildir — doküman 09'daki "Demo İletişim Verisi" ile birebir.
+import type { Localized } from "@/i18n/config"
+
+// Marka + navigasyon + DEMO (kurgusal) iletişim verisi (doküman 09).
 
 export const BRAND = {
   name: "Yeloura Studio",
@@ -8,19 +9,9 @@ export const BRAND = {
   tagline: "Beauty & Self-Care Rituals",
 } as const
 
-export interface NavLink {
-  id: string
-  label: string
-}
-
-export const NAV_LINKS: NavLink[] = [
-  { id: "hero", label: "Home" },
-  { id: "campaigns", label: "Campaigns" },
-  { id: "treatments", label: "Treatments" },
-  { id: "story", label: "Our Story" },
-  { id: "blog", label: "Blog" },
-  { id: "contact", label: "Contact" },
-]
+// Navigasyon id'leri; etiketleri i18n sözlüğünden (t.nav[id]) gelir.
+export const NAV_IDS = ["hero", "campaigns", "treatments", "story", "blog", "contact"] as const
+export type NavId = (typeof NAV_IDS)[number]
 
 export const CONTACT = {
   owner: "Elif Yıldız",
@@ -28,9 +19,9 @@ export const CONTACT = {
   phone: "+90 212 555 01 47",
   phoneHref: "tel:+902125550147",
   address: "Bağdat Cad. No:124, Kadıköy / İstanbul",
-  hours: "Mon–Sat · 10:00–20:00",
+  hours: { tr: "Pzt–Cmt · 10:00–20:00", en: "Mon–Sat · 10:00–20:00" } as Localized,
   mapUrl: "https://www.google.com/maps?q=Kadikoy+Istanbul",
-} as const
+}
 
 export interface Social {
   label: string

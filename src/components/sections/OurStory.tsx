@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { storyPages } from "@/data/story"
+import { useI18n } from "@/i18n"
 import Placeholder from "@/components/ui/Placeholder"
 import SectionHeading from "@/components/ui/SectionHeading"
+import SliderButton from "@/components/ui/SliderButton"
 
 // Hikâyemiz (doküman 05 §9.5): "kitap sayfası çevirme" hissi — rotateY geçişli.
 export default function OurStory() {
+  const { lang, t } = useI18n()
   const [page, setPage] = useState(0)
   const [dir, setDir] = useState(1)
   const current = storyPages[page]
@@ -18,7 +21,7 @@ export default function OurStory() {
   return (
     <section id="story" className="bg-cream py-20">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading eyebrow="OUR PHILOSOPHY" title="Our Story" />
+        <SectionHeading eyebrow={current.eyebrow[lang]} title={t.story.title} />
 
         <div
           className="relative mt-12 overflow-hidden rounded-3xl bg-cream-white shadow-sm"
@@ -36,38 +39,30 @@ export default function OurStory() {
             >
               <Placeholder
                 seed={page}
-                label={current.title}
+                label={current.title[lang]}
                 className="h-56 w-full rounded-2xl md:h-full"
               />
               <div className="flex flex-col justify-center">
                 <span className="text-xs font-semibold tracking-widest text-rose">
-                  {current.eyebrow}
+                  {current.eyebrow[lang]}
                 </span>
-                <h3 className="mt-2 font-serif text-2xl text-ink">{current.title}</h3>
-                <p className="mt-3 text-muted">{current.body}</p>
+                <h3 className="mt-2 font-serif text-2xl text-ink">{current.title[lang]}</h3>
+                <p className="mt-3 text-muted">{current.body[lang]}</p>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
         <div className="mt-6 flex items-center justify-center gap-4">
-          <button
-            onClick={() => go(-1)}
-            aria-label="Previous page"
-            className="rounded-full border border-ink/20 px-4 py-2 text-ink transition-colors hover:border-rose hover:text-rose"
-          >
+          <SliderButton onClick={() => go(-1)} label={t.story.prevPage}>
             ‹
-          </button>
+          </SliderButton>
           <span className="text-sm text-muted">
             {page + 1} / {storyPages.length}
           </span>
-          <button
-            onClick={() => go(1)}
-            aria-label="Next page"
-            className="rounded-full border border-ink/20 px-4 py-2 text-ink transition-colors hover:border-rose hover:text-rose"
-          >
+          <SliderButton onClick={() => go(1)} label={t.story.nextPage}>
             ›
-          </button>
+          </SliderButton>
         </div>
       </div>
     </section>

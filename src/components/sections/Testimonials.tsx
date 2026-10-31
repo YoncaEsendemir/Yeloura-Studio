@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { testimonials } from "@/data/testimonials"
+import { useI18n } from "@/i18n"
 import SectionHeading from "@/components/ui/SectionHeading"
+import SliderButton from "@/components/ui/SliderButton"
 
 // Müşteri yorumları (doküman 05 §9.7): MANUEL yatay slider (otomatik kaymaz).
 export default function Testimonials() {
+  const { lang, t } = useI18n()
   const [index, setIndex] = useState(0)
   const count = testimonials.length
 
@@ -12,55 +15,47 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-cream py-20">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <SectionHeading eyebrow="KIND WORDS" title="What Our Clients Say" />
+        <SectionHeading eyebrow={t.testimonials.eyebrow} title={t.testimonials.title} />
 
         <div className="relative mt-10 overflow-hidden">
           <div
             className="flex transition-transform duration-500"
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
-            {testimonials.map((t) => (
-              <figure key={t.id} className="w-full shrink-0 px-4">
-                <div className="text-rose" aria-label={`${t.rating} out of 5 stars`}>
-                  {"★".repeat(t.rating)}
+            {testimonials.map((item) => (
+              <figure key={item.id} className="w-full shrink-0 px-4">
+                <div className="text-rose" aria-label={`${item.rating}/5`}>
+                  {"★".repeat(item.rating)}
                 </div>
                 <blockquote className="mt-4 font-serif text-xl text-ink">
-                  “{t.quote}”
+                  “{item.quote[lang]}”
                 </blockquote>
-                <figcaption className="mt-4 text-sm text-muted">— {t.name}</figcaption>
+                <figcaption className="mt-4 text-sm text-muted">— {item.name}</figcaption>
               </figure>
             ))}
           </div>
         </div>
 
         <div className="mt-8 flex items-center justify-center gap-3">
-          <button
-            onClick={() => go(-1)}
-            aria-label="Previous testimonial"
-            className="rounded-full border border-ink/20 px-3 py-1 text-ink transition-colors hover:border-rose hover:text-rose"
-          >
+          <SliderButton onClick={() => go(-1)} label={t.testimonials.prev}>
             ‹
-          </button>
+          </SliderButton>
           {testimonials.map((_, d) => (
             <button
               key={d}
-              aria-label={`Go to testimonial ${d + 1}`}
+              aria-label={`${d + 1}`}
               onClick={() => setIndex(d)}
               className={`h-2 w-2 rounded-full transition-colors ${
                 d === index ? "bg-rose" : "bg-ink/20"
               }`}
             />
           ))}
-          <button
-            onClick={() => go(1)}
-            aria-label="Next testimonial"
-            className="rounded-full border border-ink/20 px-3 py-1 text-ink transition-colors hover:border-rose hover:text-rose"
-          >
+          <SliderButton onClick={() => go(1)} label={t.testimonials.next}>
             ›
-          </button>
+          </SliderButton>
         </div>
 
-        <p className="mt-6 text-xs text-muted">* Sample testimonials for demo purposes.</p>
+        <p className="mt-6 text-xs text-muted">{t.testimonials.note}</p>
       </div>
     </section>
   )

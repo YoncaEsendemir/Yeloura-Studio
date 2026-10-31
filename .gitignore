@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Doküman/çalışma .md dosyaları repoya girmez (README.md hariç)
+*.md
+!README.md

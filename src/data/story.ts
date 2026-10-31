@@ -1,29 +1,49 @@
-// "Hikâyemiz" bölümü — kitap sayfası çevirme düzeni (doküman 05 §9.5).
+import type { Localized } from "@/i18n/config"
+
+// "Hikâyemiz" — kitap sayfası çevirme düzeni (doküman 05 §9.5), iki dilli.
 
 export interface StoryPage {
   id: string
-  eyebrow: string
-  title: string
-  body: string
+  eyebrow: Localized
+  title: Localized
+  body: Localized
 }
 
 export const storyPages: StoryPage[] = [
   {
     id: "s1",
-    eyebrow: "OUR PHILOSOPHY",
-    title: "Beauty begins with taking time for yourself.",
-    body: "Yeloura Studio was born from a simple belief: self-care is not a luxury, it is a ritual. Every treatment is designed to slow you down.",
+    eyebrow: { tr: "FELSEFEMİZ", en: "OUR PHILOSOPHY" },
+    title: {
+      tr: "Güzellik, kendine zaman ayırmakla başlar.",
+      en: "Beauty begins with taking time for yourself.",
+    },
+    body: {
+      tr: "Yeloura Studio basit bir inançtan doğdu: öz bakım bir lüks değil, bir ritüeldir. Her bakım sizi yavaşlatmak için tasarlandı.",
+      en: "Yeloura Studio was born from a simple belief: self-care is not a luxury, it is a ritual. Every treatment is designed to slow you down.",
+    },
   },
   {
     id: "s2",
-    eyebrow: "OUR APPROACH",
-    title: "Gentle care, crafted around you.",
-    body: "We combine proven techniques with warm, personal attention. No rushing, no one-size-fits-all — just care that fits your skin and your story.",
+    eyebrow: { tr: "YAKLAŞIMIMIZ", en: "OUR APPROACH" },
+    title: {
+      tr: "Size özel, nazik bir bakım.",
+      en: "Gentle care, crafted around you.",
+    },
+    body: {
+      tr: "Kanıtlanmış teknikleri sıcak ve kişisel bir ilgiyle birleştiriyoruz. Acele yok, herkese aynı yaklaşım yok — yalnızca cildinize ve hikâyenize uygun bir bakım.",
+      en: "We combine proven techniques with warm, personal attention. No rushing, no one-size-fits-all — just care that fits your skin and your story.",
+    },
   },
   {
     id: "s3",
-    eyebrow: "OUR PROMISE",
-    title: "Quality you can feel.",
-    body: "From the products we choose to the calm of our studio, every detail is considered so you can simply relax and glow.",
+    eyebrow: { tr: "SÖZÜMÜZ", en: "OUR PROMISE" },
+    title: {
+      tr: "Hissedebileceğiniz bir kalite.",
+      en: "Quality you can feel.",
+    },
+    body: {
+      tr: "Seçtiğimiz ürünlerden stüdyomuzun huzuruna kadar her ayrıntı, siz rahatça dinlenip ışıldayın diye düşünüldü.",
+      en: "From the products we choose to the calm of our studio, every detail is considered so you can simply relax and glow.",
+    },
   },
 ]

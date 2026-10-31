@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
-import { BRAND, NAV_LINKS } from "@/data/site"
+import { BRAND, NAV_IDS } from "@/data/site"
+import { useI18n } from "@/i18n"
 import Button from "@/components/ui/Button"
+import LangToggle from "@/components/ui/LangToggle"
 import MobileMenu from "@/components/layout/MobileMenu"
 
 // Üst menü (doküman 05 §9.1): scroll'da zemin belirginleşir, gizlenmez.
 export default function Header() {
+  const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -22,7 +25,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#hero" className="leading-none" aria-label={BRAND.name}>
+        <a href="#hero" className="leading-none" aria-label={t.aria.brand}>
           <span className="block font-serif text-xl font-semibold tracking-wide text-ink">
             {BRAND.nameTop}
           </span>
@@ -32,30 +35,25 @@ export default function Header() {
         </a>
 
         <nav className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map((link) => (
+          {NAV_IDS.map((id) => (
             <a
-              key={link.id}
-              href={`#${link.id}`}
+              key={id}
+              href={`#${id}`}
               className="text-sm text-ink transition-colors hover:text-rose"
             >
-              {link.label}
+              {t.nav[id]}
             </a>
           ))}
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
-          {/* TR/EN: i18n adımında (yol haritası #6) işlevsel olacak */}
-          <div className="text-sm text-ink">
-            <button className="font-medium text-rose">TR</button>
-            <span className="mx-1 text-muted">/</span>
-            <button className="transition-colors hover:text-rose">EN</button>
-          </div>
-          <Button href="#contact">Book Now</Button>
+          <LangToggle />
+          <Button href="#contact">{t.actions.bookNow}</Button>
         </div>
 
         <button
           className="text-ink md:hidden"
-          aria-label="Open menu"
+          aria-label={t.actions.openMenu}
           onClick={() => setMenuOpen(true)}
         >
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">

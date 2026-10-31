@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { NAV_LINKS } from "@/data/site"
+import { NAV_IDS } from "@/data/site"
+import { useI18n } from "@/i18n"
 import Button from "@/components/ui/Button"
+import LangToggle from "@/components/ui/LangToggle"
 
 interface MobileMenuProps {
   open: boolean
@@ -9,6 +11,8 @@ interface MobileMenuProps {
 
 // Mobil menü: sağdan yumuşak açılır panel (doküman 06 #3).
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const { t } = useI18n()
+
   return (
     <AnimatePresence>
       {open && (
@@ -30,25 +34,26 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           >
             <button
               onClick={onClose}
-              aria-label="Close menu"
+              aria-label={t.actions.closeMenu}
               className="mb-8 text-2xl leading-none text-ink hover:text-rose"
             >
               ×
             </button>
             <nav className="flex flex-col gap-5">
-              {NAV_LINKS.map((link) => (
+              {NAV_IDS.map((id) => (
                 <a
-                  key={link.id}
-                  href={`#${link.id}`}
+                  key={id}
+                  href={`#${id}`}
                   onClick={onClose}
                   className="text-lg text-ink transition-colors hover:text-rose"
                 >
-                  {link.label}
+                  {t.nav[id]}
                 </a>
               ))}
             </nav>
-            <Button href="#contact" onClick={onClose} className="mt-8 w-full">
-              Book Now
+            <LangToggle className="mt-8" />
+            <Button href="#contact" onClick={onClose} className="mt-6 w-full">
+              {t.actions.bookNow}
             </Button>
           </motion.aside>
         </>
