@@ -3,7 +3,7 @@
 ## Çerez Onayı & Analitik
 - İlk ziyarette altta **çerez onay bannerı**: Kabul Et · Reddet · Ayarlar (+ Politika bağlantısı).
 - **Varsayılan gizlilik dostu:** analitik/pazarlama çerezleri onaya kadar **yüklenmez**; zorunlu (işlevsel) çerezler her zaman çalışır.
-- Analytics script'i (ör. GA) **yalnızca onaydan sonra** yüklenir.
+- Analitik: **Plausible** (çerezsiz, gizlilik dostu). Script yine de **yalnızca onaydan sonra** yüklenir.
 - Seçim `localStorage`/çerezde saklanır; belirli süre tekrar sorulmaz.
 - Banner klavye erişilebilir, doğru focus yönetimi.
 - **KVKK / GDPR:** hangi veri, hangi amaçla toplandığı açıkça belirtilir; gereksiz veri toplanmaz.

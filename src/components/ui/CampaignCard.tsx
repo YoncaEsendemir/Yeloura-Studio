@@ -1,0 +1,28 @@
+import type { Campaign } from "@/data/campaigns"
+import Button from "@/components/ui/Button"
+import Placeholder from "@/components/ui/Placeholder"
+
+interface CampaignCardProps {
+  item: Campaign
+  index: number
+}
+
+export default function CampaignCard({ item, index }: CampaignCardProps) {
+  return (
+    <article className="overflow-hidden rounded-2xl bg-cream-white shadow-sm transition-shadow duration-300 hover:shadow-md">
+      <Placeholder seed={index} label={item.title} className="h-48 w-full" />
+      <div className="p-6 text-left">
+        <span className="text-xs font-semibold tracking-widest text-rose">{item.tag}</span>
+        <h3 className="mt-2 font-serif text-xl text-ink">{item.title}</h3>
+        <p className="mt-2 text-sm text-muted">{item.description}</p>
+        <div className="mt-4 flex items-baseline gap-2">
+          <span className="text-muted line-through">{item.oldPrice}</span>
+          <span className="text-lg font-semibold text-ink">{item.newPrice}</span>
+        </div>
+        <Button href="#contact" className="mt-5">
+          Discover Offer →
+        </Button>
+      </div>
+    </article>
+  )
+}

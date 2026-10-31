@@ -27,7 +27,7 @@
 - [x] **İletişim: form YOK** → telefon + adres + sahibi/salon adı. Proje bir **demo/öğrenme** projesi olduğu için veriler **uydurma (demo)**.
 - [x] **Fotoğraflar:** yalnızca free/kullanım hakkı olan veya kullanıcı sağlar. Telifli yok.
 - [x] **Hikâye:** "kitap sayfası çevirme" etkileşimi **uygulanacak**.
-- [x] **Analitik:** **eklenecek** (çerez onayına bağlı, bkz. [08-guvenlik.md](08-guvenlik.md)).
+- [x] **Analitik: Plausible** (çerezsiz/gizlilik dostu; çerez onayına bağlı, bkz. [08-guvenlik.md](08-guvenlik.md)).
 
 ### Demo İletişim Verisi (kurgusal — gerçek değil)
 - Salon: **Yeloura Studio** · Sahibi: **Elif Yıldız** (kurgusal)
