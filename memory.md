@@ -19,8 +19,14 @@
 - [ ] #10 Çerez onayı + analitik
 - [ ] #11 Güvenlik & testler
 
+## REPO
+- GitHub: https://github.com/YoncaEsendemir/Yeloura-Studio.git (branch: main)
+- **Kural:** Her değişiklikten sonra commit + push. Commit'lerde co-author satırı YOK.
+
 ## OTURUM GÜNLÜĞÜ (en yeni üstte)
 ### 2026-10-31
 - Spec `yeloura-brief/` içine haritalandı; kök doküman ince indeks oldu.
-- Kararlar işlendi: İletişim = telefon+adres+sahibi/salon adı (form yok); fotoğraflar sadece free/lisanslı veya kullanıcı sağlar.
+- Kararlar: İletişim = demo veri (form yok); fotoğraflar free/lisanslı; hikaye kitap-çevirme EVET; analitik EVET (araç seçimi açık).
+- `.claude/settings.json` eklendi (includeCoAuthoredBy:false).
+- Git kuruldu, ilk commit GitHub'a push edildi.
 - Kod yazılmadı.
