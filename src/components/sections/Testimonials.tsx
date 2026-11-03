@@ -3,6 +3,7 @@ import { testimonials } from "@/data/testimonials"
 import { useI18n } from "@/i18n"
 import SectionHeading from "@/components/ui/SectionHeading"
 import SliderButton from "@/components/ui/SliderButton"
+import Reveal from "@/components/ui/Reveal"
 
 // Müşteri yorumları (doküman 05 §9.7): MANUEL yatay slider (otomatik kaymaz).
 export default function Testimonials() {
@@ -15,7 +16,9 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-cream py-20">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <SectionHeading eyebrow={t.testimonials.eyebrow} title={t.testimonials.title} />
+        <Reveal>
+          <SectionHeading eyebrow={t.testimonials.eyebrow} title={t.testimonials.title} />
+        </Reveal>
 
         <div className="relative mt-10 overflow-hidden">
           <div

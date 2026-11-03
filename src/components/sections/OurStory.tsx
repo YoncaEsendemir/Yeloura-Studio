@@ -5,6 +5,7 @@ import { useI18n } from "@/i18n"
 import Placeholder from "@/components/ui/Placeholder"
 import SectionHeading from "@/components/ui/SectionHeading"
 import SliderButton from "@/components/ui/SliderButton"
+import Reveal from "@/components/ui/Reveal"
 
 // Hikâyemiz (doküman 05 §9.5): "kitap sayfası çevirme" hissi — rotateY geçişli.
 export default function OurStory() {
@@ -21,13 +22,18 @@ export default function OurStory() {
   return (
     <section id="story" className="bg-cream py-20">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading eyebrow={current.eyebrow[lang]} title={t.story.title} />
+        <Reveal>
+          <SectionHeading eyebrow={current.eyebrow[lang]} title={t.story.title} />
+        </Reveal>
 
-        <div
-          className="relative mt-12 overflow-hidden rounded-3xl bg-cream-white shadow-sm"
-          style={{ perspective: 1200 }}
-        >
-          <AnimatePresence mode="wait">
+        <Reveal className="mt-12" delay={0.1}>
+          {/* perspective ayrı bir katmanda: kitap-çevirme 3D'si Reveal'ın
+              kendi transform'undan etkilenmesin diye. */}
+          <div
+            className="relative overflow-hidden rounded-3xl bg-cream-white shadow-sm"
+            style={{ perspective: 1200 }}
+          >
+            <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
               initial={{ rotateY: dir > 0 ? 25 : -25, opacity: 0 }}
@@ -50,8 +56,9 @@ export default function OurStory() {
                 <p className="mt-3 text-muted">{current.body[lang]}</p>
               </div>
             </motion.div>
-          </AnimatePresence>
-        </div>
+            </AnimatePresence>
+          </div>
+        </Reveal>
 
         <div className="mt-6 flex items-center justify-center gap-4">
           <SliderButton onClick={() => go(-1)} label={t.story.prevPage}>

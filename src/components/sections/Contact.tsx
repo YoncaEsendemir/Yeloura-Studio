@@ -1,6 +1,7 @@
 import { CONTACT } from "@/data/site"
 import { useI18n } from "@/i18n"
 import Button from "@/components/ui/Button"
+import Reveal from "@/components/ui/Reveal"
 
 // Tek satır iletişim bilgisi (opsiyonel bağlantılı).
 function Info({ label, value, href }: { label: string; value: string; href?: string }) {
@@ -31,6 +32,7 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-ink py-20 text-cream-white">
       <div className="mx-auto max-w-4xl px-6 text-center">
+        <Reveal>
         <p className="text-sm font-semibold tracking-[0.25em] text-rose">{t.contact.eyebrow}</p>
         <h2 className="mt-3 font-serif text-3xl text-cream-white md:text-4xl">{t.contact.title}</h2>
         <p className="mt-4 text-cream">{t.contact.desc}</p>
@@ -47,6 +49,7 @@ export default function Contact() {
           {t.actions.callToBook}
         </Button>
         <p className="mt-6 text-xs text-cream/60">{t.contact.note}</p>
+        </Reveal>
       </div>
     </section>
   )
