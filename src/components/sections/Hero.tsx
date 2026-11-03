@@ -1,53 +1,70 @@
 import { motion, useReducedMotion } from "framer-motion"
-import heroImg from "@/assets/photos/laser-2.jpg"
+import heroVideo from "@/assets/video/yeloura-hero6.mp4"
 import { CONTACT } from "@/data/site"
 import { useI18n } from "@/i18n"
 import Button from "@/components/ui/Button"
 
-// Ana karşılama (doküman 05 §9.2): metin soldan belirir, görsel yumuşak gelir.
+// Ana karşılama (doküman 05 §9.2): tam ekran arka plan videosu + okunur metin.
+// Video dekoratiftir (sessiz, döngü). "Hareketi azalt" tercihinde oynatılmaz
+// (ilk karede durur) → a11y.
 export default function Hero() {
   const { t } = useI18n()
-  // "Hareketi azalt" açıksa açılış animasyonu yok → son hâlinde çizilir (a11y).
   const reduced = useReducedMotion()
 
   return (
-    <section id="hero" className="relative flex min-h-screen items-center bg-cream-white pt-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-2">
+    <section
+      id="hero"
+      className="relative h-screen min-h-[600px] w-full overflow-hidden bg-ink"
+    >
+      {/* Arka plan videosu — object-cover ile her ekranı boşluksuz kaplar */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src={heroVideo}
+        autoPlay={!reduced}
+        loop={!reduced}
+        muted
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+        tabIndex={-1}
+      />
+
+      {/* Okunabilirlik degradeleri (sadece görsel): üstte header için,
+          alt-solda başlık metni için koyulaşır. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink/60 to-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-tr from-ink/80 via-ink/35 to-transparent"
+      />
+
+      {/* İçerik */}
+      <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-left"
+          className="max-w-xl text-left"
         >
-          <p className="text-sm font-semibold tracking-[0.25em] text-rose">{t.hero.eyebrow}</p>
-          <h1 className="mt-4 font-serif text-4xl leading-tight text-ink md:text-6xl">
+          <p className="text-sm font-semibold tracking-[0.25em] text-powder">{t.hero.eyebrow}</p>
+          <h1 className="mt-4 font-serif text-4xl leading-tight text-cream-white md:text-6xl">
             {t.hero.title}
           </h1>
-          <p className="mt-5 max-w-md text-muted">{t.hero.desc}</p>
+          <p className="mt-5 max-w-md text-cream-white/90">{t.hero.desc}</p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="#treatments">{t.actions.explore}</Button>
-            <Button href="#story" variant="outline">
+            <Button href="#story" variant="light">
               {t.actions.ourStory}
             </Button>
           </div>
-          <p className="mt-6 text-sm text-muted">
+          <p className="mt-6 text-sm text-cream-white/80">
             {t.hero.bookByPhone}{" "}
-            <a href={CONTACT.phoneHref} className="font-medium text-rose">
+            <a href={CONTACT.phoneHref} className="font-medium text-powder">
               {CONTACT.phone}
             </a>
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={reduced ? false : { opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          <img
-            src={heroImg}
-            alt="Yeloura Studio"
-            className="aspect-[4/5] w-full rounded-3xl object-cover shadow-sm"
-          />
         </motion.div>
       </div>
     </section>

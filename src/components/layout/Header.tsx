@@ -5,7 +5,8 @@ import Button from "@/components/ui/Button"
 import LangToggle from "@/components/ui/LangToggle"
 import MobileMenu from "@/components/layout/MobileMenu"
 
-// Üst menü (doküman 05 §9.1): scroll'da zemin belirginleşir, gizlenmez.
+// Üst menü (doküman 05 §9.1): en üstte (video hero üzerinde) açık renk + şeffaf;
+// scroll'da krem zemin belirir ve yazılar koyulaşır (okunurluk).
 export default function Header() {
   const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
@@ -18,6 +19,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // scroll öncesi hero videosunun üstündeyiz → açık renk yazı
+  const onHero = !scrolled
+  const textColor = onHero ? "text-cream-white" : "text-ink"
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
@@ -26,10 +31,10 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#hero" className="leading-none" aria-label={t.aria.brand}>
-          <span className="block font-serif text-xl font-semibold tracking-wide text-ink">
+          <span className={`block font-serif text-xl font-semibold tracking-wide ${textColor}`}>
             {BRAND.nameTop}
           </span>
-          <span className="block text-[10px] tracking-[0.3em] text-muted">
+          <span className={`block text-[10px] tracking-[0.3em] ${onHero ? "text-cream-white/70" : "text-muted"}`}>
             {BRAND.nameBottom}
           </span>
         </a>
@@ -39,7 +44,7 @@ export default function Header() {
             <a
               key={id}
               href={`#${id}`}
-              className="text-sm text-ink transition-colors hover:text-rose"
+              className={`text-sm transition-colors hover:text-rose ${textColor}`}
             >
               {t.nav[id]}
             </a>
@@ -47,12 +52,12 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
-          <LangToggle />
+          <LangToggle dark={onHero} />
           <Button href="#contact">{t.actions.bookNow}</Button>
         </div>
 
         <button
-          className="text-ink md:hidden"
+          className={`md:hidden ${textColor}`}
           aria-label={t.actions.openMenu}
           onClick={() => setMenuOpen(true)}
         >
