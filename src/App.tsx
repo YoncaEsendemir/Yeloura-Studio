@@ -7,13 +7,22 @@ import OurStory from "@/components/sections/OurStory"
 import Blog from "@/components/sections/Blog"
 import Testimonials from "@/components/sections/Testimonials"
 import Contact from "@/components/sections/Contact"
+import { useI18n } from "@/i18n"
 
 // Tek sayfa iskeleti (doküman 05 + 09): header → section'lar → footer.
 export default function App() {
+  const { t } = useI18n()
   return (
     <>
+      {/* Klavye kullanıcıları için atlama linki: sadece odaklanınca görünür (a11y). */}
+      <a
+        href="#main"
+        className="sr-only rounded-full bg-rose px-4 py-2 text-cream-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
+      >
+        {t.aria.skipToContent}
+      </a>
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <Campaigns />
         <Treatments />

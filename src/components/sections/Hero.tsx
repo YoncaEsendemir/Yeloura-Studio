@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import heroImg from "@/assets/hero.png"
 import { CONTACT } from "@/data/site"
 import { useI18n } from "@/i18n"
@@ -7,12 +7,14 @@ import Button from "@/components/ui/Button"
 // Ana karşılama (doküman 05 §9.2): metin soldan belirir, görsel yumuşak gelir.
 export default function Hero() {
   const { t } = useI18n()
+  // "Hareketi azalt" açıksa açılış animasyonu yok → son hâlinde çizilir (a11y).
+  const reduced = useReducedMotion()
 
   return (
     <section id="hero" className="relative flex min-h-screen items-center bg-cream-white pt-24">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-2">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-left"
@@ -37,7 +39,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
+          initial={reduced ? false : { opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >

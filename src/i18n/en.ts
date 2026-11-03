@@ -79,6 +79,7 @@ export const en = {
   },
   aria: {
     brand: "Yeloura Studio — home",
+    skipToContent: "Skip to content",
   },
 }
 

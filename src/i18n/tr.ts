@@ -82,5 +82,6 @@ export const tr: Dict = {
   },
   aria: {
     brand: "Yeloura Studio — ana sayfa",
+    skipToContent: "İçeriğe geç",
   },
 }

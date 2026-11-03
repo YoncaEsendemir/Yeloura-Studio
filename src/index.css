@@ -37,9 +37,18 @@
   }
 }
 
-/* Reduced motion: kullanıcı tercihi (doküman 06-animasyon.md) */
+/* Reduced motion: kullanıcı tercihi (doküman 06-animasyon.md).
+   Tüm CSS geçiş/animasyonlarını neredeyse anında bitirir + smooth-scroll kapatır.
+   (Framer Motion JS animasyonları ayrıca useReducedMotion ile ele alınır.) */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
