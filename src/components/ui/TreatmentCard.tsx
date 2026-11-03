@@ -26,9 +26,9 @@ export default function TreatmentCard({ item, index, onOpen }: TreatmentCardProp
       }}
       className="cursor-pointer overflow-hidden rounded-2xl border border-transparent bg-white/60 transition duration-300 hover:-translate-y-1 hover:border-rose hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-rose"
     >
-      <Placeholder seed={index + 1} label={item.name} className="h-44 w-full" />
+      <Placeholder seed={index + 1} src={item.image} alt={item.name[lang]} className="h-44 w-full" />
       <div className="p-5 text-left">
-        <h3 className="font-serif text-lg text-ink">{item.name}</h3>
+        <h3 className="font-serif text-lg text-ink">{item.name[lang]}</h3>
         <p className="mt-1 text-sm text-muted">{item.short[lang]}</p>
         <div className="mt-3 flex items-center justify-between text-sm">
           <span className="text-muted">{item.duration[lang]}</span>

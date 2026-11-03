@@ -5,7 +5,7 @@ import type { Localized } from "@/i18n/config"
 
 export interface Campaign {
   id: string
-  title: string
+  title: Localized
   description: Localized
   oldPrice: string
   newPrice: string
@@ -13,18 +13,8 @@ export interface Campaign {
 
 export const campaigns: Campaign[] = [
   {
-    id: "glow-facial",
-    title: "Glow Facial",
-    description: {
-      tr: "Cildine özel nemlendirici bir ritüel.",
-      en: "A hydrating ritual tailored to your skin.",
-    },
-    oldPrice: "₺1.500",
-    newPrice: "₺1.200",
-  },
-  {
     id: "laser",
-    title: "Laser Hair Removal",
+    title: { tr: "Lazer Epilasyon", en: "Laser Hair Removal" },
     description: {
       tr: "Nazik teknolojiyle pürüzsüz, kalıcı sonuçlar.",
       en: "Smooth, lasting results with gentle technology.",
@@ -33,13 +23,23 @@ export const campaigns: Campaign[] = [
     newPrice: "₺1.500",
   },
   {
-    id: "hydrafacial",
-    title: "Hydrafacial",
+    id: "facial",
+    title: { tr: "Yüz Bakımı", en: "Facial" },
     description: {
-      tr: "Tek seansta derin temizlik, arındırma ve nem.",
-      en: "Deep cleanse, exfoliate and hydrate in one session.",
+      tr: "Cildine özel nemlendirici bir ritüel.",
+      en: "A hydrating ritual tailored to your skin.",
     },
-    oldPrice: "₺2.200",
-    newPrice: "₺1.750",
+    oldPrice: "₺1.500",
+    newPrice: "₺1.200",
+  },
+  {
+    id: "manicure",
+    title: { tr: "El Bakımı & Manikür", en: "Manicure" },
+    description: {
+      tr: "Bakımlı eller için özel fiyat.",
+      en: "A special price for well-kept hands.",
+    },
+    oldPrice: "₺700",
+    newPrice: "₺500",
   },
 ]

@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion"
-import heroImg from "@/assets/hero.png"
+import heroImg from "@/assets/photos/laser-2.jpg"
 import { CONTACT } from "@/data/site"
 import { useI18n } from "@/i18n"
 import Button from "@/components/ui/Button"
@@ -46,7 +46,7 @@ export default function Hero() {
           <img
             src={heroImg}
             alt="Yeloura Studio"
-            className="w-full rounded-3xl object-cover shadow-sm"
+            className="aspect-[4/5] w-full rounded-3xl object-cover shadow-sm"
           />
         </motion.div>
       </div>

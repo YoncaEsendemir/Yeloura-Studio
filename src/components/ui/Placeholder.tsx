@@ -2,10 +2,12 @@ interface PlaceholderProps {
   label?: string
   className?: string
   seed?: number
+  src?: string
+  alt?: string
 }
 
-// Telifsiz görsel kuralı (doküman 01) gereği gerçek foto yerine palet gradyanı.
-// Gerçek lisanslı/free görseller sonra bu bileşenin yerine konacak.
+// Görsel alanı: `src` verilirse gerçek (telifsiz) foto, verilmezse palet gradyanı.
+// Böylece fotoğrafı olmayan bölümler de şık bir fallback'le çalışmaya devam eder.
 const pairs: [string, string][] = [
   ["--color-powder", "--color-cream"],
   ["--color-rose", "--color-powder"],
@@ -13,7 +15,13 @@ const pairs: [string, string][] = [
   ["--color-rose", "--color-cream"],
 ]
 
-export default function Placeholder({ label, className = "", seed = 0 }: PlaceholderProps) {
+export default function Placeholder({ label, className = "", seed = 0, src, alt }: PlaceholderProps) {
+  if (src) {
+    return (
+      <img src={src} alt={alt ?? label ?? ""} loading="lazy" className={`object-cover ${className}`} />
+    )
+  }
+
   const [a, b] = pairs[seed % pairs.length]
   return (
     <div

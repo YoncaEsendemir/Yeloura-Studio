@@ -1,11 +1,18 @@
 import type { Localized } from "@/i18n/config"
+import hair from "@/assets/photos/hair.jpg"
+import manicure from "@/assets/photos/manicure.jpg"
+import makeup from "@/assets/photos/makeup.jpg"
+import facial from "@/assets/photos/facial.jpg"
+import waxing from "@/assets/photos/waxing.jpg"
+import laser from "@/assets/photos/laser.jpg"
 
 // Seans/hizmet verisi (doküman 05 §9.4). Çeviri gereken alanlar Localized.
-// Hizmet adları (name) her iki dilde aynı bırakıldı (yaygın kullanım).
+// Her hizmetin kendi telifsiz görseli (`image`) vardır (Pexels, src/assets/photos).
 
 export interface Treatment {
   id: string
-  name: string
+  name: Localized
+  image: string
   short: Localized
   duration: Localized
   price: string
@@ -16,52 +23,124 @@ export interface Treatment {
 
 export const treatments: Treatment[] = [
   {
-    id: "glow-facial",
-    name: "Glow Facial",
+    id: "hair",
+    name: { tr: "Saç Bakımı", en: "Hair Care" },
+    image: hair,
     short: {
-      tr: "Yorgun cilde derin nem ve ışıltı.",
-      en: "Deep hydration and radiance for tired skin.",
+      tr: "Saça canlılık ve parlaklık kazandıran bakım.",
+      en: "Care that restores vitality and shine to your hair.",
+    },
+    duration: { tr: "60 dk", en: "60 min" },
+    price: "₺800",
+    description: {
+      tr: "Saç tipinize göre seçilen ürünlerle derinlemesine besleyen, yumuşatan ve parlaklık veren profesyonel bakım.",
+      en: "A professional treatment that deeply nourishes, softens and adds shine, with products chosen for your hair type.",
+    },
+    steps: {
+      tr: ["Saç analizi", "Derin temizlik", "Besleyici maske", "Şekillendirme"],
+      en: ["Hair analysis", "Deep cleanse", "Nourishing mask", "Styling"],
+    },
+    suitableFor: {
+      tr: "Yıpranmış, kuru veya cansız saçlar.",
+      en: "Damaged, dry or dull hair.",
+    },
+  },
+  {
+    id: "manicure",
+    name: { tr: "El Bakımı & Manikür", en: "Manicure" },
+    image: manicure,
+    short: {
+      tr: "Bakımlı eller ve kusursuz tırnaklar.",
+      en: "Groomed hands and flawless nails.",
+    },
+    duration: { tr: "45 dk", en: "45 min" },
+    price: "₺500",
+    description: {
+      tr: "Nazik tırnak şekillendirme, kütikül bakımı ve nemlendirici el masajını birleştiren rahatlatıcı bakım.",
+      en: "A relaxing treatment combining gentle nail shaping, cuticle care and a hydrating hand massage.",
+    },
+    steps: {
+      tr: ["Şekillendirme", "Kütikül bakımı", "El masajı", "Oje / cila"],
+      en: ["Shaping", "Cuticle care", "Hand massage", "Polish"],
+    },
+    suitableFor: {
+      tr: "Düzenli bakım isteyen herkes.",
+      en: "Anyone who wants well-kept hands.",
+    },
+  },
+  {
+    id: "makeup",
+    name: { tr: "Makyaj", en: "Makeup" },
+    image: makeup,
+    short: {
+      tr: "Özel günleriniz için profesyonel makyaj.",
+      en: "Professional makeup for your special moments.",
+    },
+    duration: { tr: "60 dk", en: "60 min" },
+    price: "₺1.000",
+    description: {
+      tr: "Cilt tonunuza ve davetin tarzına uygun, gün boyu kalıcı profesyonel makyaj uygulaması.",
+      en: "A long-lasting professional makeup application tailored to your skin tone and the occasion.",
+    },
+    steps: {
+      tr: ["Cilt hazırlığı", "Fondöten & kapatıcı", "Göz & kaş", "Son dokunuşlar"],
+      en: ["Skin prep", "Foundation & concealer", "Eyes & brows", "Finishing touches"],
+    },
+    suitableFor: {
+      tr: "Düğün, nişan, davet ve çekimler.",
+      en: "Weddings, engagements, events and shoots.",
+    },
+  },
+  {
+    id: "facial",
+    name: { tr: "Yüz Bakımı", en: "Facial" },
+    image: facial,
+    short: {
+      tr: "Cildi temizleyen ve ışıldatan derin bakım.",
+      en: "Deep care that cleanses and brightens the skin.",
     },
     duration: { tr: "60 dk", en: "60 min" },
     price: "₺1.200",
     description: {
       tr: "Cildi temizleyen, arındıran ve derinlemesine nemlendirerek doğal bir ışıltı kazandıran imza bakımı.",
-      en: "A signature facial that cleanses, exfoliates and deeply hydrates to reveal a natural glow.",
+      en: "A signature facial that cleanses, purifies and deeply hydrates to reveal a natural glow.",
     },
     steps: {
       tr: ["Temizleme", "Nazik peeling", "Nemlendirici maske", "Masaj ve nemlendirme"],
       en: ["Cleansing", "Gentle exfoliation", "Hydrating mask", "Massage & moisturizer"],
     },
     suitableFor: {
-      tr: "Tüm cilt tipleri, özellikle donuk veya nemsiz ciltler.",
-      en: "All skin types, especially dull or dehydrated skin.",
+      tr: "Tüm cilt tipleri, özellikle donuk ciltler.",
+      en: "All skin types, especially dull skin.",
     },
   },
   {
-    id: "hydrafacial",
-    name: "Hydrafacial",
+    id: "waxing",
+    name: { tr: "Ağda", en: "Waxing" },
+    image: waxing,
     short: {
-      tr: "Tek seansta temizlik, arındırma ve nem.",
-      en: "Cleanse, extract and hydrate in one session.",
+      tr: "Pürüzsüz bir cilt için nazik ağda.",
+      en: "Gentle waxing for smooth skin.",
     },
-    duration: { tr: "45 dk", en: "45 min" },
-    price: "₺1.750",
+    duration: { tr: "30 dk", en: "30 min" },
+    price: "₺400",
     description: {
-      tr: "Gözenekleri arındıran ve cildi besleyici serumlarla doyuran çok adımlı bir bakım.",
-      en: "A multi-step treatment that purifies pores and infuses the skin with nourishing serums.",
+      tr: "Hassas ciltlere uygun ürünlerle konforlu ve hijyenik tüy alma uygulaması.",
+      en: "A comfortable, hygienic hair-removal treatment with products suited to sensitive skin.",
     },
     steps: {
-      tr: ["Derin temizlik", "Peeling", "Arındırma", "Nem takviyesi"],
-      en: ["Deep cleanse", "Peel", "Extraction", "Hydration boost"],
+      tr: ["Cilt hazırlığı", "Ağda uygulaması", "Tüy alma", "Yatıştırıcı bakım"],
+      en: ["Skin prep", "Wax application", "Removal", "Soothing care"],
     },
     suitableFor: {
-      tr: "Gözenekli veya düzensiz ton görünümüne sahip ciltler.",
-      en: "Congested or uneven skin tone.",
+      tr: "Tüm bölgeler; hassas ciltler dahil.",
+      en: "All areas; including sensitive skin.",
     },
   },
   {
     id: "laser",
-    name: "Laser Hair Removal",
+    name: { tr: "Lazer Epilasyon", en: "Laser Hair Removal" },
+    image: laser,
     short: {
       tr: "Nazik teknolojiyle kalıcı pürüzsüzlük.",
       en: "Lasting smoothness with gentle technology.",
@@ -79,72 +158,6 @@ export const treatments: Treatment[] = [
     suitableFor: {
       tr: "Çoğu cilt tonu; ön görüşme önerilir.",
       en: "Most skin tones; consultation recommended.",
-    },
-  },
-  {
-    id: "anti-aging",
-    name: "Anti-Aging Ritual",
-    short: {
-      tr: "İnce çizgileri yumuşatan sıkılaştırıcı bakım.",
-      en: "Firming care that softens fine lines.",
-    },
-    duration: { tr: "75 dk", en: "75 min" },
-    price: "₺2.000",
-    description: {
-      tr: "Sıkılığı yeniden kazandırmak için masaj ve aktif serumları birleştiren gençleştirici bakım.",
-      en: "A rejuvenating treatment combining massage and active serums to restore firmness.",
-    },
-    steps: {
-      tr: ["Temizleme", "Enzim peeling", "Sıkılaştırıcı masaj", "Kolajen maske"],
-      en: ["Cleanse", "Enzyme peel", "Lifting massage", "Collagen mask"],
-    },
-    suitableFor: {
-      tr: "Olgun cilt veya erken yaşlanma belirtileri.",
-      en: "Mature skin or early signs of aging.",
-    },
-  },
-  {
-    id: "skin-care",
-    name: "Classic Skincare",
-    short: {
-      tr: "Sakinleştirici temizlik ve bakım rutini.",
-      en: "A calming cleanse-and-care routine.",
-    },
-    duration: { tr: "50 dk", en: "50 min" },
-    price: "₺900",
-    description: {
-      tr: "Günlük cilt sağlığı için denge ve konfora odaklanan rahatlatıcı bir bakım.",
-      en: "A relaxing facial focused on balance and comfort for everyday skin health.",
-    },
-    steps: {
-      tr: ["Temizleme", "Tonik", "Maske", "Nemlendirme"],
-      en: ["Cleanse", "Tone", "Mask", "Moisturize"],
-    },
-    suitableFor: {
-      tr: "Hassas veya normal ciltler.",
-      en: "Sensitive or normal skin.",
-    },
-  },
-  {
-    id: "massage",
-    name: "Relax Massage",
-    short: {
-      tr: "Gerginliği atın, tamamen rahatlayın.",
-      en: "Release tension and unwind fully.",
-    },
-    duration: { tr: "60 dk", en: "60 min" },
-    price: "₺1.100",
-    description: {
-      tr: "Stresi azaltmak ve huzuru geri getirmek için tasarlanmış yatıştırıcı tüm vücut masajı.",
-      en: "A soothing full-body massage designed to relieve stress and restore calm.",
-    },
-    steps: {
-      tr: ["Isınma", "Sırt ve omuzlar", "Bacaklar ve kollar", "Rahatlama"],
-      en: ["Warm-up", "Back & shoulders", "Legs & arms", "Relaxation"],
-    },
-    suitableFor: {
-      tr: "Dinlenmeye ve toparlanmaya ihtiyaç duyan herkes.",
-      en: "Anyone needing rest and recovery.",
     },
   },
 ]

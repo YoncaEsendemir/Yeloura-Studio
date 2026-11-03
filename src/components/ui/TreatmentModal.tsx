@@ -57,8 +57,13 @@ export default function TreatmentModal({ treatment, onClose }: TreatmentModalPro
             >
               ×
             </button>
+            <img
+              src={treatment.image}
+              alt={treatment.name[lang]}
+              className="mb-4 h-44 w-full rounded-xl object-cover"
+            />
             <h3 id="treatment-modal-title" className="font-serif text-2xl text-ink">
-              {treatment.name}
+              {treatment.name[lang]}
             </h3>
             <p className="mt-2 text-muted">{treatment.description[lang]}</p>
 
