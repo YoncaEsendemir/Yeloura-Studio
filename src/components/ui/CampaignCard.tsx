@@ -13,7 +13,7 @@ export default function CampaignCard({ item, index }: CampaignCardProps) {
 
   return (
     <article className="overflow-hidden rounded-2xl bg-cream-white shadow-sm transition-shadow duration-300 hover:shadow-md">
-      <Placeholder seed={index} label={item.title[lang]} className="h-48 w-full" />
+      <Placeholder seed={index} src={item.image} alt={item.title[lang]} className="h-48 w-full" />
       <div className="p-6 text-left">
         <span className="text-xs font-semibold tracking-widest text-rose">{t.campaigns.badge}</span>
         <h3 className="mt-2 font-serif text-xl text-ink">{item.title[lang]}</h3>

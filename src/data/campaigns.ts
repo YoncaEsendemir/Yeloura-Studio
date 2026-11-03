@@ -1,10 +1,15 @@
 import type { Localized } from "@/i18n/config"
+import laserImg from "@/assets/photos/laser-2.jpg"
+import facialImg from "@/assets/photos/facial.jpg"
+import manicureImg from "@/assets/photos/manicure.jpg"
 
 // Kampanya verisi (doküman 05 §9.3). Fiyatlar ÖRNEKTİR. "SPECIAL OFFER"
 // etiketi i18n'den (t.campaigns.badge) gelir, burada tekrar edilmez.
+// Görseller ilgili servisle aynıdır (telifsiz, src/assets/photos).
 
 export interface Campaign {
   id: string
+  image: string
   title: Localized
   description: Localized
   oldPrice: string
@@ -14,6 +19,7 @@ export interface Campaign {
 export const campaigns: Campaign[] = [
   {
     id: "laser",
+    image: laserImg,
     title: { tr: "Lazer Epilasyon", en: "Laser Hair Removal" },
     description: {
       tr: "Nazik teknolojiyle pürüzsüz, kalıcı sonuçlar.",
@@ -24,6 +30,7 @@ export const campaigns: Campaign[] = [
   },
   {
     id: "facial",
+    image: facialImg,
     title: { tr: "Yüz Bakımı", en: "Facial" },
     description: {
       tr: "Cildine özel nemlendirici bir ritüel.",
@@ -34,6 +41,7 @@ export const campaigns: Campaign[] = [
   },
   {
     id: "manicure",
+    image: manicureImg,
     title: { tr: "El Bakımı & Manikür", en: "Manicure" },
     description: {
       tr: "Bakımlı eller için özel fiyat.",

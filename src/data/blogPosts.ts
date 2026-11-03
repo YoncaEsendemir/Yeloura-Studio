@@ -1,9 +1,14 @@
 import type { Localized } from "@/i18n/config"
+import routineImg from "@/assets/photos/blog-routine.jpg"
+import facialImg from "@/assets/photos/blog-facial.jpg"
+import seasonalImg from "@/assets/photos/blog-seasonal.jpg"
 
 // Blog yazıları (doküman 05 §9.6). İlk sürümde örnek veri, iki dilli.
+// Her yazının telifsiz bir kapak görseli (`image`) vardır (Pexels).
 
 export interface BlogPost {
   id: string
+  image: string
   category: Localized
   title: Localized
   excerpt: Localized
@@ -13,6 +18,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: "routine",
+    image: routineImg,
     category: { tr: "CİLT BAKIMI", en: "SKINCARE" },
     title: {
       tr: "Cilt Bakım Rutini Nasıl Oluşturulur?",
@@ -26,6 +32,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "before-after",
+    image: facialImg,
     category: { tr: "İPUÇLARI", en: "TIPS" },
     title: {
       tr: "Bakım Öncesi ve Sonrası: Bilmeniz Gerekenler",
@@ -39,6 +46,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "seasonal",
+    image: seasonalImg,
     category: { tr: "CİLT BAKIMI", en: "SKINCARE" },
     title: {
       tr: "Mevsimsel Cilt Bakımı: Havaya Göre Uyum",

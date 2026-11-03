@@ -1,9 +1,14 @@
 import type { Localized } from "@/i18n/config"
+import story1 from "@/assets/photos/story-1.jpg"
+import story2 from "@/assets/photos/story-2.jpg"
+import story3 from "@/assets/photos/story-3.jpg"
 
 // "Hikâyemiz" — kitap sayfası çevirme düzeni (doküman 05 §9.5), iki dilli.
+// Her sayfanın telifsiz bir görseli (`image`) vardır (Pexels).
 
 export interface StoryPage {
   id: string
+  image: string
   eyebrow: Localized
   title: Localized
   body: Localized
@@ -12,6 +17,7 @@ export interface StoryPage {
 export const storyPages: StoryPage[] = [
   {
     id: "s1",
+    image: story1,
     eyebrow: { tr: "FELSEFEMİZ", en: "OUR PHILOSOPHY" },
     title: {
       tr: "Güzellik, kendine zaman ayırmakla başlar.",
@@ -24,6 +30,7 @@ export const storyPages: StoryPage[] = [
   },
   {
     id: "s2",
+    image: story2,
     eyebrow: { tr: "YAKLAŞIMIMIZ", en: "OUR APPROACH" },
     title: {
       tr: "Size özel, nazik bir bakım.",
@@ -36,6 +43,7 @@ export const storyPages: StoryPage[] = [
   },
   {
     id: "s3",
+    image: story3,
     eyebrow: { tr: "SÖZÜMÜZ", en: "OUR PROMISE" },
     title: {
       tr: "Hissedebileceğiniz bir kalite.",

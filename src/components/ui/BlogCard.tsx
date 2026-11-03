@@ -15,7 +15,8 @@ export default function BlogCard({ item, index }: BlogCardProps) {
       <div className="overflow-hidden">
         <Placeholder
           seed={index + 2}
-          label={item.category[lang]}
+          src={item.image}
+          alt={item.title[lang]}
           className="h-44 w-full transition-transform duration-500 group-hover:scale-105"
         />
       </div>
