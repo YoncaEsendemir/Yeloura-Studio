@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#a65d68" />
     <meta
       name="description"
-      content="Yeloura Studio — beauty & self-care rituals. Facials, laser, hydrafacial and anti-aging treatments."
+      content="Yeloura Studio — beauty & self-care rituals: hair care, manicure, makeup, facials, waxing and laser hair removal."
     />
+    <meta name="robots" content="index, follow" />
+    <!-- NOT: placeholder alan adı — gerçek domain alınınca güncelle (canonical + og:url + JSON-LD url/image) -->
+    <link rel="canonical" href="https://yeloura-studio.example.com/" />
     <title>Yeloura Studio — Beauty & Self-Care Rituals</title>
 
     <!-- Open Graph / sosyal paylaşım önizlemesi (doküman 07-seo.md) -->
@@ -17,8 +21,9 @@
     <meta property="og:title" content="Yeloura Studio — Beauty & Self-Care Rituals" />
     <meta
       property="og:description"
-      content="Beauty & self-care rituals crafted around you — facials, laser, hydrafacial and anti-aging treatments."
+      content="Beauty & self-care rituals crafted around you — hair, nails, makeup, facials, waxing and laser hair removal."
     />
+    <meta property="og:url" content="https://yeloura-studio.example.com/" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -28,6 +33,35 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Yapılandırılmış veri (LocalBusiness) — DEMO: kurgusal işletme, gerçek değildir -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Yeloura Studio",
+        "description": "DEMO / portföy projesi — kurgusal işletme bilgileri, gerçek bir işletme değildir.",
+        "image": "https://yeloura-studio.example.com/favicon.svg",
+        "url": "https://yeloura-studio.example.com/",
+        "telephone": "+902125550147",
+        "priceRange": "₺₺",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bağdat Cad. No:124",
+          "addressLocality": "Kadıköy",
+          "addressRegion": "İstanbul",
+          "addressCountry": "TR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "10:00",
+            "closes": "20:00"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
