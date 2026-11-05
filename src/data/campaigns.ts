@@ -1,7 +1,7 @@
 import type { Localized } from "@/i18n/config"
-import laserImg from "@/assets/photos/laser-2.jpg"
-import facialImg from "@/assets/photos/facial.jpg"
-import manicureImg from "@/assets/photos/manicure.jpg"
+import laserImg from "@/assets/photos/laser-2.webp"
+import facialImg from "@/assets/photos/facial.webp"
+import manicureImg from "@/assets/photos/manicure.webp"
 
 // Kampanya verisi (doküman 05 §9.3). Fiyatlar ÖRNEKTİR. "SPECIAL OFFER"
 // etiketi i18n'den (t.campaigns.badge) gelir, burada tekrar edilmez.

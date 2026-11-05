@@ -1,7 +1,7 @@
 import type { Localized } from "@/i18n/config"
-import routineImg from "@/assets/photos/blog-routine.jpg"
-import facialImg from "@/assets/photos/blog-facial.jpg"
-import seasonalImg from "@/assets/photos/blog-seasonal.jpg"
+import routineImg from "@/assets/photos/blog-routine.webp"
+import facialImg from "@/assets/photos/blog-facial.webp"
+import seasonalImg from "@/assets/photos/blog-seasonal.webp"
 
 // Blog yazıları (doküman 05 §9.6). İlk sürümde örnek veri, iki dilli.
 // Her yazının telifsiz bir kapak görseli (`image`) vardır (Pexels).

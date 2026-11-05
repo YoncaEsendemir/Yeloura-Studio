@@ -1,7 +1,7 @@
 import type { Localized } from "@/i18n/config"
-import story1 from "@/assets/photos/story-1.jpg"
-import story2 from "@/assets/photos/story-2.jpg"
-import story3 from "@/assets/photos/story-3.jpg"
+import story1 from "@/assets/photos/story-1.webp"
+import story2 from "@/assets/photos/story-2.webp"
+import story3 from "@/assets/photos/story-3.webp"
 
 // "Hikâyemiz" — kitap sayfası çevirme düzeni (doküman 05 §9.5), iki dilli.
 // Her sayfanın telifsiz bir görseli (`image`) vardır (Pexels).

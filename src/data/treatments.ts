@@ -1,10 +1,10 @@
 import type { Localized } from "@/i18n/config"
-import hair from "@/assets/photos/hair.jpg"
-import manicure from "@/assets/photos/manicure.jpg"
-import makeup from "@/assets/photos/makeup.jpg"
-import facial from "@/assets/photos/facial.jpg"
-import waxing from "@/assets/photos/waxing.jpg"
-import laser from "@/assets/photos/laser.jpg"
+import hair from "@/assets/photos/hair.webp"
+import manicure from "@/assets/photos/manicure.webp"
+import makeup from "@/assets/photos/makeup.webp"
+import facial from "@/assets/photos/facial.webp"
+import waxing from "@/assets/photos/waxing.webp"
+import laser from "@/assets/photos/laser.webp"
 
 // Seans/hizmet verisi (doküman 05 §9.4). Çeviri gereken alanlar Localized.
 // Her hizmetin kendi telifsiz görseli (`image`) vardır (Pexels, src/assets/photos).
