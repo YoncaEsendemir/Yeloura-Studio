@@ -84,4 +84,11 @@ export const tr: Dict = {
     brand: "Yeloura Studio — ana sayfa",
     skipToContent: "İçeriğe geç",
   },
+  cookie: {
+    ariaLabel: "Çerez onayı",
+    title: "Çerez tercihin",
+    desc: "Siteyi geliştirmek için gizlilik dostu, anonim ziyaret istatistikleri kullanmak istiyoruz. Kişisel veri toplanmaz ve onayın olmadan hiçbir izleme çalışmaz.",
+    accept: "Kabul et",
+    reject: "Reddet",
+  },
 }

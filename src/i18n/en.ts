@@ -81,6 +81,13 @@ export const en = {
     brand: "Yeloura Studio — home",
     skipToContent: "Skip to content",
   },
+  cookie: {
+    ariaLabel: "Cookie consent",
+    title: "Cookie preference",
+    desc: "We'd like to use privacy-friendly, anonymous visit statistics to improve the site. No personal data is collected, and nothing is tracked without your consent.",
+    accept: "Accept",
+    reject: "Decline",
+  },
 }
 
 export type Dict = typeof en

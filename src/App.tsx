@@ -7,6 +7,7 @@ import OurStory from "@/components/sections/OurStory"
 import Blog from "@/components/sections/Blog"
 import Testimonials from "@/components/sections/Testimonials"
 import Contact from "@/components/sections/Contact"
+import CookieConsent from "@/components/ui/CookieConsent"
 import { useI18n } from "@/i18n"
 
 // Tek sayfa iskeleti (doküman 05 + 09): header → section'lar → footer.
@@ -32,6 +33,8 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      {/* Çerez onayı: karar verilene kadar altta görünür (doküman 09 #10). */}
+      <CookieConsent />
     </>
   )
 }
