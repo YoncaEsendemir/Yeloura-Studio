@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-cream-white">{t.footer.quickLinks}</h4>
+          <h3 className="text-sm font-semibold text-cream-white">{t.footer.quickLinks}</h3>
           <ul className="mt-3 space-y-2 text-sm">
             {NAV_IDS.map((id) => (
               <li key={id}>
@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold text-cream-white">{t.footer.follow}</h4>
+          <h3 className="text-sm font-semibold text-cream-white">{t.footer.follow}</h3>
           <ul className="mt-3 space-y-2 text-sm">
             {SOCIALS.map((social) => (
               <li key={social.label}>
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/50">
+      <div className="border-t border-cream/10 py-6 text-center text-xs text-cream/70">
         © {new Date().getFullYear()} {BRAND.name}. {t.footer.rights}
       </div>
     </footer>

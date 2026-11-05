@@ -30,7 +30,9 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#hero" className="leading-none" aria-label={t.aria.brand}>
+        {/* aria-label YOK: görünen "YELOURA STUDIO" metni erişilebilir ad olur
+            (WCAG 2.5.3 — görünen etiket ile erişilebilir ad uyuşmalı). */}
+        <a href="#hero" className="leading-none">
           <span className={`block font-serif text-xl font-semibold tracking-wide ${textColor}`}>
             {BRAND.nameTop}
           </span>

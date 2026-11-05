@@ -1,0 +1,5 @@
+# Yeloura Studio — arama motoru botları için kurallar
+User-agent: *
+Allow: /
+
+Sitemap: https://beauty.yoncaesendemir.com.tr/sitemap.xml

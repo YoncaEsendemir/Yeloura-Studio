@@ -47,11 +47,17 @@ export default function Testimonials() {
             <button
               key={d}
               aria-label={`${d + 1}`}
+              aria-current={d === index}
               onClick={() => setIndex(d)}
-              className={`h-2 w-2 rounded-full transition-colors ${
-                d === index ? "bg-rose" : "bg-ink/20"
-              }`}
-            />
+              className="flex h-6 w-6 items-center justify-center rounded-full"
+            >
+              {/* Görünür nokta 8px, tıklama alanı 24px (WCAG dokunma hedefi) */}
+              <span
+                className={`block h-2 w-2 rounded-full transition-colors ${
+                  d === index ? "bg-rose" : "bg-ink/20"
+                }`}
+              />
+            </button>
           ))}
           <SliderButton onClick={() => go(1)} label={t.testimonials.next}>
             ›

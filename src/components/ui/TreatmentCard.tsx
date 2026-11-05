@@ -13,7 +13,7 @@ export default function TreatmentCard({ item, index, onOpen }: TreatmentCardProp
   const { lang, t } = useI18n()
 
   return (
-    <article
+    <div
       role="button"
       tabIndex={0}
       aria-haspopup="dialog"
@@ -38,6 +38,6 @@ export default function TreatmentCard({ item, index, onOpen }: TreatmentCardProp
           {t.actions.viewDetails} →
         </span>
       </div>
-    </article>
+    </div>
   )
 }

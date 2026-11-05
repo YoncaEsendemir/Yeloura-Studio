@@ -8,7 +8,7 @@
   --color-rose: #a65d68;
   --color-rose-dark: #81434d;
   --color-ink: #252321;
-  --color-muted: #746b67;
+  --color-muted: #6b6460; /* WCAG AA: krem zeminlerde kontrast >=4.5 (Lighthouse a11y) */
 
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
