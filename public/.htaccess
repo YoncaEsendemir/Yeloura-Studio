@@ -1,0 +1,39 @@
+# Yeloura Studio — Apache (cPanel) yapılandırması
+# Bu dosya build'de dist/ köküne kopyalanır ve public_html/ içinde çalışır.
+
+# 1) HTTP → HTTPS yönlendirme (güvenli bağlantı + SEO)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 2) Gzip sıkıştırma (metin tabanlı dosyalar küçülür → daha hızlı yükleme)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript application/json image/svg+xml application/xml
+</IfModule>
+
+# 3) Tarayıcı önbelleği (cache) — statik varlıklar uzun süre saklanır
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  # HTML her zaman taze kalsın (güncellemeler hemen görünsün)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# 4) Güvenlik başlıkları + hash'li varlıklar için immutable cache
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(css|js|webp|svg|png|woff2|mp4)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

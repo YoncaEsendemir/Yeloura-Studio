@@ -17,16 +17,15 @@ function readConsent(): Consent | null {
 
 // Onay verilince analitiği YÜKLE. Onay olmadan bu fonksiyon hiç çağrılmaz,
 // yani izleme script'i de hiç eklenmez (KVKK/GDPR gereği).
-// Gerçek domain (beauty.yoncaesendemir.com.tr) + Plausible aktifleşince burası dolacak:
+// Plausible = gizlilik dostu, çerezsiz, hafif ziyaretçi analitiği.
 function loadAnalytics() {
-  // TODO (#10 uzantısı — domain cPanel'e yüklenince aç):
-  // if (document.getElementById("plausible-script")) return // iki kez yükleme
-  // const s = document.createElement("script")
-  // s.id = "plausible-script"
-  // s.defer = true
-  // s.dataset.domain = "beauty.yoncaesendemir.com.tr"
-  // s.src = "https://plausible.io/js/script.js"
-  // document.head.appendChild(s)
+  if (document.getElementById("plausible-script")) return // iki kez yüklemeyi önle
+  const s = document.createElement("script")
+  s.id = "plausible-script"
+  s.defer = true
+  s.dataset.domain = "beauty.yoncaesendemir.com.tr"
+  s.src = "https://plausible.io/js/script.js"
+  document.head.appendChild(s)
 }
 
 // Çerez onayı banner'ı (doküman 09 #10):
